@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "scanmind-ai"
+version = "0.1.0"
+description = "ScanMind AI - finds the security vulnerabilities that AI website builders most commonly ship: leaked keys, missing headers, CSRF-less forms, and accidentally deployed files."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "ScanMind AI" }]
+keywords = ["security", "vulnerability", "scanner", "ai", "web", "pentest"]
+classifiers = [
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+]
+
+dependencies = [
+    "requests>=2.31",
+    "beautifulsoup4>=4.12",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+scanmind = "scanmind.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["scanmind*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+addopts = "-ra"

@@ -1,0 +1,6 @@
+# Runtime dependencies of ScanMind AI
+requests>=2.31
+beautifulsoup4>=4.12
+
+# Development / testing
+pytest>=8.0
